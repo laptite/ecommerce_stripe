@@ -3,7 +3,9 @@
     #price-container
       %span.glyphicon.glyphicon-tag
       %span.price $4.99
-    %img#content-header-img{:alt => "Learn Growth Hacking", :src => "img/header-image.jpg"}/
+    #content-header-img
+      = image_tag "header-image.jpg", alt: "Learn Growth Hacking"
+
   %section#content-details.row.clearfix
     %article#details-article.col-sm-8
       %h1#article-title
@@ -12,7 +14,7 @@
       %h3
         %small
           By
-          %a{"data-target" => "#author-modal", "data-toggle" => "modal", :href => "#"} Mattan Griffel
+          = link_to "Mattan Griffel", "#", data: { target: "#author-modal", toggle: "modal" }
       %p A growth hacker is a rare combination: someone with the right marketing and technical skills who can come up with clever marketing hacks and also track their results.
       %p In this talk, Mattan Griffel introduces you to the concept of Growth Hacking and shares his favorite tips for getting started as a growth hacker.
       %p
@@ -23,7 +25,7 @@
         %li How to apply the Lean Marketing Framework
         %li Resources and tools you'll need to know
     %aside#details-aside.col-sm-4
-      %a#btn-buy.btn.btn-success.btn-lg.btn-block{:href => "receipt.html"}
+      %a#btn-buy.btn.btn-success.btn-lg.btn-block{ href: "receipt.html" }
         %span.glyphicon.glyphicon-ok>
         I want this!
       %ul#details-infobox.list-group
@@ -34,8 +36,10 @@
           %span.pull-right 30 minutes
 %footer#site-footer
   Made by
-  %a{:href => "http://onemonth.com", :target => "_blank"}
-    %img#one-month-footer-logo{:alt => "One Month", :src => "img/one-month-logo.svg"}/
+  = link_to "http://onemonth.com", target: "_blank"
+  #one-month-footer-logo
+    = image_tag "one-month-logo.svg", alt: "One Month"
+
 / Modal
 #author-modal.modal.fade
   .modal-dialog
@@ -56,11 +60,9 @@
             Why take my class? In the past I've advised companies like Pepsico, Bloomberg, GM, NYSE, and JPMorgan on growth hacking best practices. I've also spoken at New York University, Cooper Union and First Round Capital. My goal is to help you and other entrepreneurs rapidly grow your business.
           %p
             Follow me on Twitter
-            %a{:href => "https://twitter.com/mattangriffel", :target => "_blank"} @mattangriffel
+            = link_to "@mattangriffel", "https://twitter.com/mattangriffel", target: "_blank"
         #modal-right.pull-right
-          %img{:alt => "Mattan Griffel", :src => "img/teacher-image.jpg"}/
+          = image_tag 'teacher-image.jpg', alt: "Mattan Griffel"
+
       .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-/ Scripts
-%script{:src => "http://code.jquery.com/jquery-latest.min.js"}
-%script{:src => "js/lib/bootstrap.min.js"}
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close

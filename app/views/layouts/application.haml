@@ -1,0 +1,17 @@
+!!!
+%html{ lang: "en" }
+  %head
+    %title E-Commerce Stripe
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,800', media: 'all', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+    %meta{ charset: "utf-8" }
+    %meta{ content: "IE=edge", "http-equiv" => "X-UA-Compatible" }
+    %meta{ content: "width=device-width, user-scalable=no", name: "viewport" }
+
+  %body
+    = yield
+
+  = javascript_include_tag 'http://code.jquery.com/jquery-latest.min.js'
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true

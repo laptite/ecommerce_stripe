@@ -25,7 +25,7 @@
         %li How to apply the Lean Marketing Framework
         %li Resources and tools you'll need to know
     %aside#details-aside.col-sm-4
-      %a#btn-buy.btn.btn-success.btn-lg.btn-block{ href: "receipt.html" }
+      %a#btn-buy.btn.btn-success.btn-lg.btn-block{ href: "/receipt" }
         %span.glyphicon.glyphicon-ok>
         I want this!
       %ul#details-infobox.list-group
@@ -36,8 +36,7 @@
           %span.pull-right 30 minutes
 %footer#site-footer
   Made by
-  = link_to "http://onemonth.com", target: "_blank"
-  #one-month-footer-logo
+  = link_to "http://onemonth.com", target: "_blank", class: "#one-month-footer-logo" do 
     = image_tag "one-month-logo.svg", alt: "One Month"
 
 / Modal

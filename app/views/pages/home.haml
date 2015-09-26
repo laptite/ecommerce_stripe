@@ -26,3 +26,9 @@
       %li.list-group-item.clearfix
         %span.pull-left.content-qualifier Length
         %span.pull-right 30 minutes
+
+    = form_tag charges_path do
+      %article
+        %label.amount
+          %span Amount: $5.00
+      %script.stripe-button{ "data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js" }

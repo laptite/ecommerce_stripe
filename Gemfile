@@ -23,6 +23,9 @@ gem 'rails_12factor', group: :production
 # Use stripe for e-commerce payments
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
+# Use to securely manage credentials
+gem "figaro"
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

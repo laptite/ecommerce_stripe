@@ -11,7 +11,11 @@
     %meta{ content: "width=device-width, user-scalable=no", name: "viewport" }
 
   %body
-    = yield
+    #content.container
+      = render 'layouts/header'
+      = yield
+    
+    = render 'layouts/footer'
+    = render 'layouts/modal'
 
-  = javascript_include_tag 'http://code.jquery.com/jquery-latest.min.js'
   = javascript_include_tag 'application', 'data-turbolinks-track' => true

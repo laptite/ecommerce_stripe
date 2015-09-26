@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Support stripe payments through charges
   resources :charges
 
+  # Route for showing purchases
+  resources :purchases, only: [:show]
+
   get '/receipt', to: 'pages#receipt', as: :receipt
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

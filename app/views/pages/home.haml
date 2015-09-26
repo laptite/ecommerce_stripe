@@ -16,19 +16,39 @@
       %li The 5 stages of the user lifecycle
       %li How to apply the Lean Marketing Framework
       %li Resources and tools you'll need to know
+  
   %aside#details-aside.col-sm-4
-    %a#btn-buy.btn.btn-success.btn-lg.btn-block{ href: "/receipt" }
-      %span.glyphicon.glyphicon-ok>
-      I want this!
+    = form_tag charges_path, id: 'chargeForm' do
+      %script{ src: "https://checkout.stripe.com/checkout.js" }
+      = hidden_field_tag 'amount', 499 # Amount in cents
+      = hidden_field_tag 'stripeToken'
+      = hidden_field_tag 'stripeEmail'
+      %button#btn-buy.btn.btn-success.btn-lg.btn-block
+        %span.glyphicon.glyphicon-ok
+        I want this!
+
+      :javascript
+        var handler = StripeCheckout.configure({
+        key: '#{ Rails.configuration.stripe[:publishable_key] }',
+        token: function(token, arg) {
+            document.getElementById("stripeToken").value = token.id;
+            document.getElementById("stripeEmail").value = token.email;
+            document.getElementById("chargeForm").submit();
+          }
+        });
+              
+        document.getElementById('btn-buy').addEventListener('click', function(e) {
+          handler.open({
+            name: 'One Month',
+            description: 'Growth Hacking Crash Course ($4.99)',
+            amount: 499
+          });
+          e.preventDefault();
+        })
+
     %ul#details-infobox.list-group
       %li.list-group-item.active.clearfix DETAILS
       %li.list-group-item You'll get one video
       %li.list-group-item.clearfix
         %span.pull-left.content-qualifier Length
         %span.pull-right 30 minutes
-
-    = form_tag charges_path do
-      %article
-        %label.amount
-          %span Amount: $5.00
-      %script.stripe-button{ "data-amount" => "500", "data-description" => "A month's subscription", "data-key" => Rails.configuration.stripe[:publishable_key], "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js" }

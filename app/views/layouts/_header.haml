@@ -1,6 +1,6 @@
 %header#content-header
   #price-container
     %span.glyphicon.glyphicon-tag
-    %span.price $4.99
+    %span.price= number_to_currency(@product.price)
   #content-header-img
     = image_tag "header-image.jpg", alt: "Learn Growth Hacking"

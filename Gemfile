@@ -24,7 +24,10 @@ gem 'rails_12factor', group: :production
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 
 # Use to securely manage credentials
-gem "figaro"
+gem 'figaro'
+
+# Use to handle emails in development
+gem 'letter_opener', group: :development
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

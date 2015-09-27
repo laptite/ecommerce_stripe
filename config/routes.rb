@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # Support stripe payments through charges
-  resources :charges
+  resources :charges, only: [:create]
 
   # Route for showing purchases
   resources :purchases, only: [:show]

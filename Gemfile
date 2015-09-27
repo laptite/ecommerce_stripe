@@ -29,6 +29,12 @@ gem 'figaro'
 # Use to handle emails in development
 gem 'letter_opener', group: :development
 
+# Add ActiveAdmin to generate Admin Interface
+gem 'activeadmin', github: 'activeadmin'
+
+# Add Devise to support login for ActiveAdmin
+gem 'devise'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

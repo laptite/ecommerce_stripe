@@ -13,7 +13,8 @@
             %span.font-weight-light Crash Course
         .col-sm-4
           = number_to_currency(@purchase.amount/100.0)
-      %button.btn.btn-success.btn-xs{ type: "button" } DOWNLOAD
+      %a.btn.btn-success.btn-xs{ href: "https://s3-us-west-2.amazonaws.com/alisa-e-learning-bucket/receipt.pdf" }
+        DOWNLOAD
       %footer#receipt-footer
         %small Your purchase is complete. We hope you enjoy it!
     .dotmatrix.right

@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ChargesController < ApplicationController
 
   def create

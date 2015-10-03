@@ -3,12 +3,20 @@ require 'securerandom'
 class ChargesController < ApplicationController
 
   def create
-    product = Product.find_by(sku: "GROHACK1")
+    product = Product.find_by(sku: "GROHACK2")
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
-      card:  params[:stripeToken]
+      card:  params[:stripeToken],
+      plan:  "GROHACK2"
     )
+
+    # Subscribe customer
+    # customer = Stripe::Customer.create(
+    #   email: params[:stripeEmail],
+    #   card:  params[:stripeToken],
+    #   plan:  "GROHACK2"
+    # )
 
     charge = Stripe::Charge.create(
       customer:    customer.id,
@@ -27,6 +35,14 @@ class ChargesController < ApplicationController
       product_id:  product.id,
       uuid:        SecureRandom.uuid
     )
+
+    # Subscribe customer
+    # Comment out charge and hard-code currency
+    # purchase = Purchase.create(
+    #   ...
+    #   currency:    'usd',
+    #   ...
+    # )
 
     redirect_to purchase
 

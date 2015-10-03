@@ -9,7 +9,7 @@
         .col-sm-8.receipt-left
           %p
             %strong.font-weight-heavy= @product.title
-            %br/
+            %br
             %span.font-weight-light= @product.subtitle
         .col-sm-4
           = number_to_currency(@purchase.amount/100.0)

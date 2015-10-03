@@ -1,6 +1,6 @@
 = form_tag charges_path, id: 'chargeForm' do
   %script{ src: "https://checkout.stripe.com/checkout.js" }
-  = hidden_field_tag 'amount', @product.price*100 # Amount in cents
+  = hidden_field_tag 'amount', @product.price_in_cents
   = hidden_field_tag 'stripeToken'
   = hidden_field_tag 'stripeEmail'
   %button#btn-buy.btn.btn-success.btn-lg.btn-block
@@ -20,7 +20,7 @@
     document.getElementById('btn-buy').addEventListener('click', function(e) {
       handler.open({
         name: 'One Month',
-        description: '#{@product.title} #{@product.subtitle} ($#{@product.price})',
+        description: '#{ @product.full_description } ($#{ @product.price })',
         amount: document.getElementById("amount").value
       });
       e.preventDefault();

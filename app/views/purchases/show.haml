@@ -8,12 +8,12 @@
       #receipt-details.row.clearfix
         .col-sm-8.receipt-left
           %p
-            %strong.font-weight-heavy Growth Hacking
-            %br/
-            %span.font-weight-light Crash Course
+            %strong.font-weight-heavy= @product.title
+            %br
+            %span.font-weight-light= @product.subtitle
         .col-sm-4
           = number_to_currency(@purchase.amount/100.0)
-      %a.btn.btn-success.btn-xs{ href: "https://s3-us-west-2.amazonaws.com/e-commerce-stripe/receipt.pdf" }
+      %a.btn.btn-success.btn-xs{ href: @product.download_url }
         DOWNLOAD
       %footer#receipt-footer
         %small Your purchase is complete. We hope you enjoy it!

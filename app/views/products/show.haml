@@ -3,7 +3,7 @@
     %span.glyphicon.glyphicon-tag
     %span.price= number_to_currency(@product.price) if @product.present?
   #content-header-img
-    = image_tag "header-image.jpg", alt: "Learn Growth Hacking"
+    = image_tag @product.header_image_name, alt: "Learn #{@product.title}"
 
   %section#content-details.row.clearfix
     %article#details-article.col-sm-8

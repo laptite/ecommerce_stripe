@@ -7,4 +7,9 @@ class Product < ActiveRecord::Base
   def price_in_cents
     (self.price * 100).to_i
   end
+
+  def thumbnail_image_name
+    name = title.parameterize.gsub('-monthly', '')
+    "product-#{name}.png"
+  end
 end

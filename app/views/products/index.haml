@@ -1,0 +1,18 @@
+%header#content-header
+  #content-header-img
+    = image_tag "header-image.jpg", alt: "One Month"
+
+  %section#content-details.row.clearfix
+    %article#details-article.col-sm-8
+      %h1#article-title Our Courses
+
+  %section#products
+    - @products.each do |product|
+      .product.clearfix
+        = link_to product_path(product) do
+          .product-image-container
+            = image_tag product.thumbnail_image_name, alt: product.title
+            %span.product-price
+              = number_to_currency(product.price)
+          %p.product-title
+            = product.title

@@ -3,6 +3,7 @@
   = hidden_field_tag 'amount', @product.price_in_cents
   = hidden_field_tag 'stripeToken'
   = hidden_field_tag 'stripeEmail'
+  = hidden_field_tag 'product_id', @product.id
   %button#btn-buy.btn.btn-success.btn-lg.btn-block
     %span.glyphicon.glyphicon-ok
     I want this!
